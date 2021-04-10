@@ -171,5 +171,8 @@
     color: #00e17b;
   }
   
-
+  .responsive {
+    width: 100%;
+    height: auto;
+  }
   
