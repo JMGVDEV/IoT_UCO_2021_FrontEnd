@@ -29,5 +29,9 @@ export class NavbarComponent implements OnInit {
     console.log('HelloWorld')
   }
 
+  home(){
+    this.router.navigateByUrl('/dashboard/home')
+  }
+
 
 }
