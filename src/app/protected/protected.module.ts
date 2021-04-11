@@ -7,14 +7,17 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
-import { ExplorerComponent } from './explorer/explorer.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, NavbarComponent, FooterComponent, ProfileComponent, HomeComponent, ExplorerComponent],
+  declarations: [DashboardComponent, NavbarComponent, FooterComponent, ProfileComponent, HomeComponent],
   imports: [
     CommonModule,
     ProtectedRoutingModule
+  ],
+  exports: [
+    NavbarComponent,
+    FooterComponent
   ]
 })
 export class ProtectedModule { }

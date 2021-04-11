@@ -23,4 +23,11 @@ export class NavbarComponent implements OnInit {
     console.log('HelloWorld')
   }
 
+  explora(){
+    this.router.navigateByUrl('/user');
+    
+    console.log('HelloWorld')
+  }
+
+
 }
