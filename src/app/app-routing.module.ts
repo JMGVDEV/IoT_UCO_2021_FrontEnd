@@ -18,6 +18,10 @@ const routes: Routes = [
 
   },
   {
+    path: 'appointment',
+    loadChildren: () => import('./appointment/appointment.module').then(mod => mod.AppointmentModule)
+  },
+  {
     path: '**',
     redirectTo: 'auth'
   }

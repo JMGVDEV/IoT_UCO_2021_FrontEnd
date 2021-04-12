@@ -33,5 +33,9 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('/dashboard/home')
   }
 
+  agenda(){
+    this.router.navigateByUrl('/appointment');
+  }
+
 
 }
