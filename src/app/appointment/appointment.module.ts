@@ -7,6 +7,7 @@ import { GetAppointmentComponent } from './components/get-appointment/get-appoin
 import { DeleteAppointmentComponent } from './components/delete-appointment/delete-appointment.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { ProtectedModule } from '../protected/protected.module';
+import { ReactiveFormsModule, FormGroup, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,7 +15,9 @@ import { ProtectedModule } from '../protected/protected.module';
   imports: [
     CommonModule,
     AppointmentRoutingModule,
-    ProtectedModule
+    ProtectedModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class AppointmentModule { }

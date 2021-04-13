@@ -10,12 +10,3 @@ export interface LoginBody {
     password: string;
 }
 
-export interface Usuario {
-    email: string;
-    firstName: string;
-    lastName: string;
-    password: string;
-    role: string;
-
-
-}

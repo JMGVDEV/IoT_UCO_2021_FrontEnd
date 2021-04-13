@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { AuthResponse, LoginBody, Usuario } from '../interfaces/interfaces';
+import { AuthResponse, LoginBody} from '../interfaces/interfaces';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Profile } from './profile';
@@ -12,14 +12,10 @@ import { Profile } from './profile';
 export class AuthService {
 
   private urlBase: string = environment.urlBase
-  private _usuario!: Usuario;
+
 
   constructor( private http: HttpClient) { }
 
-
-  get usuario(){
-    return this._usuario
-  }
 
   login(loginBody: LoginBody){
 

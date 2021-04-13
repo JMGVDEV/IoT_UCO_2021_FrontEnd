@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Appointment } from '../../shared/model/appointment';
 
 @Component({
   selector: 'app-create-appointment',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateAppointmentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
   }
+
+  crearAppointmentForm: FormGroup = this.formBuilder.group({
+    userId: [null, Validators.required],
+    date: [null, Validators.required]
+  })
+
+  create(form: FormGroup){
+    const appointment: Appointment = {
+      userId: form.value.userId,
+      date: form.value.date    
+    }
+    console.log(`${appointment.userId}, ${appointment.date}`)
+  }
+
+
+
+ 
+
 
 }
