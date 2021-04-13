@@ -37,5 +37,9 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('/appointment');
   }
 
+  recursos(){
+    this.router.navigateByUrl('/dashboard/open-door')
+  }
+
 
 }
