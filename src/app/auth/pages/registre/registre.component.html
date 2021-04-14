@@ -1,17 +1,42 @@
-<div >
-    <div class="container">
-      <h1  style=" font-family: 'Syne Mono', monospace; ; text-align: center; color: #ffffff;">¡UPS! </h1>
-      <p  class="forgot text-muted" style=" font-family: 'Syne Mono', monospace; text-align: center; padding: 20px;"><small>Algo ocurrió. Al parecer no tienes los permisos sufientes para realizar esta acción.</small>
-      </p>
-      <div style="padding: 20px;">
-        <p style="text-align: center;"><img src="../../../../assets/img/1.svg" width="100" alt="" loading="lazy" ></p>
+<div>
+  <div class="container">
+    <form [formGroup]="registerForm" (ngSubmit)="handleFormSubmit()">
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email">
       </div>
-      <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace; text-align: center;"> 
-        <small>¿Ya tienes una cuenta?  
-            <a routerLink="/auth/login" style=" color: #80d8ff;">Ingresa
-            </a>
-        </small>
+
+      <div>
+        <label for="firstName">Nombre</label>
+        <input type="text" id="firstName" formControlName="firstName">
+      </div>
+
+      <div>
+        <label for="lastName">Apellido</label>
+        <input type="text" id="lastName" formControlName="lastName">
+      </div>
+
+      <div>
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" formControlName="password">
+      </div>
+
+      <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput" (change)="onFileSelected($event)">
+
+      <button type="submit" [disabled]="!registerForm.valid">Registrar</button>
+    </form>
+    <!--
+    <h1 style=" font-family: 'Syne Mono', monospace; ; text-align: center; color: #ffffff;">¡UPS! </h1>
+    <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace; text-align: center; padding: 20px;"><small>Algo ocurrió. Al parecer no tienes los permisos sufientes para realizar esta acción.</small>
     </p>
-      </div>
+    <div style="padding: 20px;">
+      <p style="text-align: center;"><img src="../../../../assets/img/1.svg" width="100" alt="" loading="lazy" ></p>
+    </div>
+    <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace; text-align: center;">
+      <small>¿Ya tienes una cuenta?
+        <a routerLink="/auth/login" style=" color: #80d8ff;">Ingresa</a>
+      </small>
+    </p>
+    -->
   </div>
-  
+</div>

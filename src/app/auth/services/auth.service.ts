@@ -5,13 +5,14 @@ import { AuthResponse, LoginBody} from '../interfaces/interfaces';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Profile } from './profile';
+import { RegisterPowerUser } from '../interfaces/register-power-user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private urlBase: string = environment.urlBase
+  private urlBase: string = environment.urlBase;
 
 
   constructor( private http: HttpClient) { }
@@ -19,8 +20,8 @@ export class AuthService {
 
   login(loginBody: LoginBody){
 
-    const url = `${this.urlBase}/auth/login`;  
-  
+    const url = `${this.urlBase}/auth/login`;
+
 
     return this.http.post<AuthResponse>(url, loginBody)
       .pipe(
@@ -46,5 +47,7 @@ export class AuthService {
     } );
   }
 
-
+  public registerPowerUser(payload: RegisterPowerUser): Observable<any> {
+    return this.http.post(`${this.urlBase}/auth/register-power-user`, payload);
+  }
 }

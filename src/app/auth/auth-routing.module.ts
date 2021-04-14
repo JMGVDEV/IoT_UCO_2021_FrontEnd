@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { MainComponent } from './pages/main/main.component';
-import { RegistreComponent } from './pages/registre/registre.component';
+import { RegisterComponent } from './pages/registre/registre.component';
 
 const routes: Routes = [
 
@@ -11,16 +11,11 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {path: 'login', component: LoginComponent},
-      {path: 'registre', component: RegistreComponent},
+      {path: 'register', component: RegisterComponent},
       {path: '**', redirectTo: 'login'},
-      
+
     ]
   }
-
-
-
-
-
 ];
 
 @NgModule({

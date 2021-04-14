@@ -9,9 +9,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./protected/protected.module').then(mod => mod.ProtectedModule)
-    
-  }
-  ,
+  },
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then(mod => mod.UserModule)
