@@ -1,37 +1,34 @@
-<div class="container-login100" style="background-color: #262626; padding: 10px;">
-    <div class="jumbotron " style="background-color: #212121; border-radius: 50px;">
-            <div >
-                <div >
-                    <div class="image text-center"> <img src="../../../assets/img/profile-user.svg" class="rounded" width="100">
-                        <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace; "> 
-                            <small style="font-size: 10px; color: #80d8f8;">Imagen de perfil predeterminada
-                            </small>
-                        </p>       
-                    </div>
-                    
-                    <hr style=" border-top: 1px solid #00e17b;">
-                    <div class="ml-3 w-100">
-                        <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace;"> 
-                            <small>Id: 
-                                <a style="color: #ffffff;">103640855#25
-                                </a>
-                            </small>
-                        </p>
-                        <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace;"> 
-                            <small>Correo Electronico: 
-                                <a style="color: #ffffff;">test@gmail.com
-                                </a>
-                            </small>
-                        </p>
-                        <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace;"> 
-                            <small>Rol: 
-                                <a style="color: #ffffff;">POWER_USER
-                                </a>
-                            </small>
-                        </p>
-                        
-                    </div>
-                </div>
-            </div>
+<div class="container-login100" style="background-color: #262626; padding: 10px;" *ngIf="profile$ | async as profile">
+  <div class="jumbotron " style="background-color: #212121; border-radius: 50px;">
+    <div>
+      <div>
+        <div class="image text-center"> <img src="../../../assets/img/profile-user.svg" class="rounded" width="100">
+          <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace; ">
+            <small style="font-size: 10px; color: #80d8f8;">Imagen de perfil predeterminada
+            </small>
+          </p>
+        </div>
+
+        <hr style=" border-top: 1px solid #00e17b;">
+        <div class="ml-3 w-100">
+          <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace;">
+            <small>Id:
+              <a style="color: #ffffff;">{{ profile.id }}</a>
+            </small>
+          </p>
+          <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace;">
+            <small>Correo Electronico:
+              <a style="color: #ffffff;">{{ profile.email }}</a>
+            </small>
+          </p>
+          <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace;">
+            <small>Rol:
+              <a style="color: #ffffff;">{{ profile.role }}
+              </a>
+            </small>
+          </p>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
