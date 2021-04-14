@@ -46,9 +46,8 @@ export class LoginComponent {
         });
 
         this.sessionService.accessToken = resp.accessToken;
-      } 
-      else {
-          Swal.fire({
+      } else {
+        Swal.fire({
           title: '<p class="fuente size-fuente" style="color: #FF8A80"><small>Error de Autenticación</small></p>',
           html: '<p class="fuente size-fuente" style="color: #ffffff"><small>Verifica las credenciales e intente nuevamente</small></p>',
           icon: 'error',
@@ -56,7 +55,6 @@ export class LoginComponent {
           background: '#212121',
           confirmButtonText: '<a class="fuente">Intentar de nuevo</a>'
         });
-        console.log('pasa')
       }
     });
   }

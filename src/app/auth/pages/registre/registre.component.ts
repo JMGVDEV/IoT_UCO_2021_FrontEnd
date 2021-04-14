@@ -42,10 +42,6 @@ export class RegisterComponent implements OnInit {
             background: '#212121',
             confirmButtonText: '<a class="fuente">Ok</a>'
           });
-
-          console.log('ewasd')
-    
-
       });
     }
     else{
@@ -58,8 +54,7 @@ export class RegisterComponent implements OnInit {
         confirmButtonText: '<a class="fuente">Intentar de nuevo</a>'
       });
     }
-    
-    console.log("pasa")
+ 
   }
 
   public onFileSelected(event: any): void {

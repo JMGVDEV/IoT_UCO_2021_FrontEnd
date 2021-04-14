@@ -28,18 +28,28 @@
             </small>
           </p>
         </div>
-
+        <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace; padding: 2%; text-align: center;">
+          <small style="font-size: 15px; color: #80d8f8; ">Actualiza el PIN
+          </small>
+        </p>
+        <hr style=" border-top: 1px solid #00e17b;">
+        
         <div class="mt-4 w-100" style="color: #fff">
-          <p class="forgot text-muted">Actualizar PIN</p>
 
           <form [formGroup]="updatePinForm" (ngSubmit)="updatePin()">
-            <label for="pin">PIN</label>
+            <label for="pin"  class="col-label col-sm-2" style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px;">PIN</label>
             <input type="number" id="pin" formControlName="pin">
-
-            <button type="submit">Actualizar PIN</button>
+            <div style="padding-top: 2%;">
+              <p class="text-muted" style=" font-family: 'Syne Mono', monospace; ; text-align: center; font-size: 12px;" >Función solo disponible para rol: MANAGER <br>Se aconseja un número conformado por 4 dígitos. </p>
+            </div>
+            <button [disabled]="!updatePinForm.valid" class="btn btn-success mb-2 center" type="submit" style="font-family: 'Consolas', cursive; font-size: 12px; background-color: #00e17b;">Actualizar PIN</button>
+          
           </form>
+          
+          
         </div>
       </div>
     </div>
   </div>
 </div>
+
