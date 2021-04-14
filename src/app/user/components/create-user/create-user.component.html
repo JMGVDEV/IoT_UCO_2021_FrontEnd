@@ -1,69 +1,61 @@
-<p style="margin-left: auto; margin-right: auto;color: #00e17b; font-family: 'Consolas', cursive; font-size: 18px; "> 
+<p style="margin-left: auto; margin-right: auto;color: #00e17b; font-family: 'Consolas', cursive; font-size: 18px; ">
     Nuevo Usuario
-    
-</p> 
+
+</p>
 <p style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 15px; "><small>Despues de crear un nuevo usuario puede verficar en la opción de consultas</small></p>
 <hr>
 
-
-<div >
-    <form [formGroup]="crearUserForm" autocomplete="off" (ngSubmit)="create(crearUserForm)">
+<div>
+    <form [formGroup]="crearUserForm" autocomplete="off">
         <div class="form-group row">
             <label for="email" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Email</label>
             <div class="col-sm-6">
                 <input type="text" class="form-control estilo" formControlName="email" name="email">
-               
+
             </div>
         </div>
-    
+
         <div class="form-group row">
             <label for="firstName" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Nombre</label>
             <div class="col-sm-6">
                 <input type="text" class="form-control estilo" formControlName="firstName" name="firstName" >
-                
+
             </div>
         </div>
-    
+
         <div class="form-group row">
             <label for="lastName" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Apellido</label>
             <div class="col-sm-6">
                 <input type="text" class="form-control estilo" formControlName="lastName" name="lastName">
             </div>
         </div>
-    
+
         <div class="form-group row">
             <label for="password" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Password</label>
             <div class="col-sm-6">
                 <input type="text" class="form-control estilo" formControlName="password" name="password">
             </div>
         </div>
-    
+
         <div class="form-group row">
             <label for="role" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Rol</label>
             <div class="col-sm-6">
                 <select class="custom-select my-1 mr-sm-2 estilo" formControlName="role" name="role">
-                    
+
                     <option>POWER_USER</option>
                     <option>MANAGER</option>
                     <option>USER</option>
                     <option>WATCHMAN</option>
                 </select>
             </div>
-
-            
-
         </div>
-
 
         <div class="estilo espaciado-uno">
             <small *ngIf="crearUserForm.invalid" class="form-text " style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80;" >Antes de intentar ingresar valida la estructura de los campos.</small>
             <small *ngIf="crearUserForm.valid" class="form-text colorSecundario" style="text-align: center; font-family: 'Syne Mono', monospace;" >Hey, genial!</small>
             <hr>
             <button [disabled]="crearUserForm.invalid" class="btn btn-success mb-2" type="submit" style="font-family: 'Consolas', cursive; font-size: 12px; background-color: #00e17b;">Crear </button>
-        
+
         </div>
-    
-        
-    
     </form>
 </div>
