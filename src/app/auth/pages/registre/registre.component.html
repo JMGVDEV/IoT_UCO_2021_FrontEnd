@@ -1,5 +1,7 @@
 <div>
   <div class="container">
+   
+   <!--
     <form [formGroup]="registerForm" (ngSubmit)="handleFormSubmit()">
       <div>
         <label for="email">Email</label>
@@ -25,6 +27,41 @@
 
       <button type="submit" [disabled]="!registerForm.valid">Registrar</button>
     </form>
+    -->
+    <form [formGroup]="registerForm" (ngSubmit)="handleFormSubmit()" class="box" action="index.html" method="post">
+      <h3 style=" font-family: 'Syne Mono', monospace; color: #ffffff; text-align: center; ">Registrar</h3>
+      <p class="text-muted" style=" font-family: 'Syne Mono', monospace; ; text-align: center;" >Por favor ingrese sus credenciales, todo los datos son obligatorios</p>
+      <div style="padding: 10px;">
+        <input autocomplete="off" type="text" id="email" formControlName="email" placeholder="Email">
+        <input autocomplete="off" type="text" id="firstName" formControlName="firstName" placeholder="Nombre">
+        <input autocomplete="off" type="text" id="lastName" formControlName="lastName" placeholder="Apellido">
+        <input type="password" id="password" placeholder="Password" formControlName="password">
+        <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace; ; text-align: center;">
+            <small>¿Ya tienes una cuenta?
+              <a routerLink="/auth/login" style=" color: #80d8ff;">Ingresa</a>
+            </small>
+        </p>
+      </div>
+  
+      <div style="padding-top: 20px;">
+        <small *ngIf="registerForm.invalid" class="form-text " style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80;" >Antes de intentar hacer el registro valida la estructura de los campos a ingresar.</small>
+        <small  *ngIf="registerForm.valid" class="form-text colorSecundario" style="text-align: center; font-family: 'Syne Mono', monospace;" >Genial</small>
+        <input  type="submit"   value="OK" >
+      </div>
+  
+      </form>
+  
+
+
+
+
+
+
+
+
+
+
+
     <!--
     <h1 style=" font-family: 'Syne Mono', monospace; ; text-align: center; color: #ffffff;">¡UPS! </h1>
     <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace; text-align: center; padding: 20px;"><small>Algo ocurrió. Al parecer no tienes los permisos sufientes para realizar esta acción.</small>
