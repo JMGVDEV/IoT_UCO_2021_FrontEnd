@@ -34,4 +34,9 @@ export class UserService {
   public registerWatchman(payload: RegisterUser): Observable<any> {
     return this.http.post(`${this.urlBase}/auth/register-watchman`, payload);
   }
-}
+
+  public setImageUser(formData: FormData): Observable<any>{
+    return this.http.post(`${this.urlBase}/`, formData);
+  }
+
+ } 

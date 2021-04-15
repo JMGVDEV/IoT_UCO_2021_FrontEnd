@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 
 
 
+
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
@@ -17,17 +18,21 @@ export class CreateUserComponent {
 
   public registerUserForm!: FormGroup;
 
+  emailPattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$";
+  passwordPattern = "(?=.*[-!#$%&/()?¡_*])(?=.*[A-Z])(?=.*[a-z]).{8,}"
+
   constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router ) {
 
   }
 
   public ngOnInit(): void {
     this.registerUserForm = this.formBuilder.group({
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      password: ['', Validators.required],
-      role: ['', Validators.required]
+      password: ['', [Validators.required, Validators.pattern(this.passwordPattern)]],
+      role: ['', Validators.required],
+      image: ['']
     });
   }
 
@@ -52,6 +57,9 @@ export class CreateUserComponent {
               confirmButtonText: '<a class="fuente">Ok</a>'
             });
             this.router.navigateByUrl('/user');
+            const formData = new FormData();
+            formData.append('file', this.registerUserForm.get('image')?.value);
+            this.userService.setImageUser(formData).subscribe();
         });
         
       }
@@ -91,6 +99,9 @@ export class CreateUserComponent {
 
 
   public onFileSelected(event: any): void {
-    console.log(event.target.files[0]);
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.registerUserForm.get('profile')?.setValue(file);
+    }   
   }
 }

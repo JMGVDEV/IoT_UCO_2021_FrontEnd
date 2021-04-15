@@ -13,7 +13,7 @@
             <hr>
             
             
-            <form>
+            <form [formGroup]="openDoorForm" (ngSubmit)="nowOpenDoor()" autocomplete="off" action="index.html" method="post" >
                 <!--
                 <div class="form-group row">
                     <label class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Id Usuario</label>
@@ -28,12 +28,26 @@
                     </div>
                 </div>
                 -->
-                <label for="pin"  class="col-label col-sm-2" style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px;">PIN</label>
-                <input  type="number" id="pin" formControlName="pin">    
+                <hr>
+                <div class="center" ></div>
+                <div class="form-group row">
+                    <label for="image" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Foto</label>
+                    <div class="col-sm-4">
+                        <input id="image" formControlName="image" name="image" type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput" class="form-control estilo" (change)="onFileSelected($event)">
+                 
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="pin"  class="col-label col-sm-2" style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px;">PIN</label>
+                    <div class="col-sm-4">
+                        <input  type="number" id="pin" formControlName="pin">
+                    </div>
+                </div>
                 <hr>
 
                 <p class="text-muted" style=" font-family: 'Syne Mono', monospace; ; text-align: center; font-size: 12px;" >¿Eres usuario manager? <br>  Verifica tus credencial en la parte superior izquierda, sección profile. <br> Además, recuerda cambiar tu pin por seguridad</p>
-                <button class="btn btn-success mb-2" style="font-family: 'Consolas', cursive; font-size: 17px; background-color: #00e17b;" autocomplete="off">Abrir Puerta ahora</button>
+                <button [disabled]="openDoorForm.invalid" type="submit" class="btn btn-success mb-2" style="font-family: 'Consolas', cursive; font-size: 17px; background-color: #00e17b;" autocomplete="off">Abrir Puerta ahora</button>
             
             
             </form>

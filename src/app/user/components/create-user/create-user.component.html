@@ -11,7 +11,7 @@
             <label for="email" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Email</label>
             <div class="col-sm-6">
                 <input type="text" class="form-control estilo" id="email" formControlName="email" name="email">
-
+                <p  *ngIf="registerUserForm.controls.email.errors" class="forgot text-muted" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Ingrese un correo adecuado</p>
             </div>
         </div>
 
@@ -19,7 +19,7 @@
             <label for="firstName" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Nombre</label>
             <div class="col-sm-6">
                 <input type="text" class="form-control estilo" id="firstName" formControlName="firstName" name="firstName" >
-
+                <p  *ngIf="registerUserForm.controls.firstName.errors" class="forgot text-muted" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Campo Requerido</p>
             </div>
         </div>
 
@@ -27,6 +27,7 @@
             <label for="lastName" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Apellido</label>
             <div class="col-sm-6">
                 <input type="text" class="form-control estilo" id="lastName" formControlName="lastName" name="lastName">
+                <p  *ngIf="registerUserForm.controls.lastName.errors" class="forgot text-muted" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Campo Requerido</p>
             </div>
         </div>
 
@@ -34,6 +35,7 @@
             <label for="password" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Password</label>
             <div class="col-sm-6">
                 <input type="password" class="form-control estilo" id="password" formControlName="password" name="password">
+                <p  *ngIf="registerUserForm.controls.password.errors" class="forgot text-muted" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >La contraseña debe contener: [MAY-MIN-NUM-CARACTER ESPECIAL]</p>
             </div>
         </div>
 
@@ -47,13 +49,14 @@
                     <option>USER</option>
                     <option>WATCHMAN</option>
                 </select>
+                <p  *ngIf="registerUserForm.controls.role.errors" class="forgot text-muted" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Campo Requerido</p>
             </div>
         </div>
 
         <hr style="background-color: #212121;">
 
         <div class="form-group row">
-            <label for="password" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Foto</label>
+            <label  class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Foto</label>
             <div class="col-sm-4">
                 <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput" class="form-control estilo" (change)="onFileSelected($event)">
          
