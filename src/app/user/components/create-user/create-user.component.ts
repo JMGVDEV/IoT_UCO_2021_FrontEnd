@@ -58,7 +58,8 @@ export class CreateUserComponent {
             });
             this.router.navigateByUrl('/user');
             const formData = new FormData();
-            formData.append('file', this.registerUserForm.get('image')?.value);
+            formData.append('photo', this.registerUserForm.get('image')?.value);
+            console.log(formData);
             this.userService.setImageUser(formData).subscribe();
         });
         
@@ -102,6 +103,10 @@ export class CreateUserComponent {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.registerUserForm.get('profile')?.setValue(file);
+      const formData = new FormData();
+      formData.append('photo', file);
+      console.log(formData);
+      this.userService.setImageUser(formData).subscribe();
     }   
   }
 }
