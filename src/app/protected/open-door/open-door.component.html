@@ -1,19 +1,20 @@
 <div class="espaciado-uno" style="background-color: #262626">
 
     <h1 style=" color: #80d8ff; font-family: 'Syne Mono', monospace; text-align: center;">
-        Administración de la Puerta</h1>
+        Ingreso a Bóveda</h1>
 
-    <div class="image text-center"> <img src="../../../assets/img/door.svg" class="rounded" width="100">
+    <div class="image text-center"> <img src="../../../assets/img/boveda.svg" class="rounded" width="100">
         <div class="espaciado-uno">
             <p style="margin-left: auto; margin-right: auto;color: #00e17b; font-family: 'Consolas', cursive; font-size: 18px; "> 
                 Abrir Puerta
                 
             </p> 
-            <p style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 15px; "><small>Puede abrir la puerta haciendo uso de sus credenciales.</small></p>
+            <p style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 15px; "><small>Puede abrir la puerta de la bóveda haciendo uso de sus credenciales.</small></p>
             <hr>
             
             
             <form>
+                <!--
                 <div class="form-group row">
                     <label class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Id Usuario</label>
                     <div class="col-sm-6">
@@ -26,7 +27,12 @@
                         <input type="email" class="form-control estilo" >
                     </div>
                 </div>
+                -->
+                <label for="pin"  class="col-label col-sm-2" style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px;">PIN</label>
+                <input  type="number" id="pin" formControlName="pin">    
                 <hr>
+
+                <p class="text-muted" style=" font-family: 'Syne Mono', monospace; ; text-align: center; font-size: 12px;" >¿Eres usuario manager? <br>  Verifica tus credencial en la parte superior izquierda, sección profile. <br> Además, recuerda cambiar tu pin por seguridad</p>
                 <button class="btn btn-success mb-2" style="font-family: 'Consolas', cursive; font-size: 17px; background-color: #00e17b;" autocomplete="off">Abrir Puerta ahora</button>
             
             

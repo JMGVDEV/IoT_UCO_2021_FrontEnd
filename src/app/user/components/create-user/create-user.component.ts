@@ -3,6 +3,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from '../../shared/model/user';
 import { UserService } from '../../shared/services/user.service';
 import { RegisterUser } from '../../shared/model/register-user';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -14,7 +17,7 @@ export class CreateUserComponent {
 
   public registerUserForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService ) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router ) {
 
   }
 
@@ -38,21 +41,52 @@ export class CreateUserComponent {
         role: this.registerUserForm.get('role')?.value
       };
     
-
       if(this.registerUserForm.get('role')?.value == 'MANAGER'){
-        this.userService.registerManager(payload).subscribe();
+        this.userService.registerManager(payload).subscribe(resp =>{
+            Swal.fire({
+              title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>Ya eres parte de IOT:UCO</small></p>',
+              html: '<p class="fuente size-fuente" style="color: #ffffff"><small></small>Chévere tenerte aquí</p>',
+              icon: 'success',
+              confirmButtonColor: '#00e17b',
+              background: '#212121',
+              confirmButtonText: '<a class="fuente">Ok</a>'
+            });
+            this.router.navigateByUrl('/user');
+        });
+        
       }
       else if(this.registerUserForm.get('role')?.value == 'USER'){
-        this.userService.registerUser(payload).subscribe();
+        this.userService.registerUser(payload).subscribe(resp =>{
+          Swal.fire({
+            title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>Ya eres parte de IOT:UCO</small></p>',
+            html: '<p class="fuente size-fuente" style="color: #ffffff"><small></small>Chévere tenerte aquí</p>',
+            icon: 'success',
+            confirmButtonColor: '#00e17b',
+            background: '#212121',
+            confirmButtonText: '<a class="fuente">Ok</a>'
+          });
+          this.router.navigateByUrl('/user');
+      });
+      
       }
       else if(this.registerUserForm.get('role')?.value == 'WATCHMAN'){
-        this.userService.registerWatchman(payload).subscribe();
+        this.userService.registerWatchman(payload).subscribe(resp =>{
+            Swal.fire({
+              title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>Ya eres parte de IOT:UCO</small></p>',
+              html: '<p class="fuente size-fuente" style="color: #ffffff"><small></small>Chévere tenerte aquí</p>',
+              icon: 'success',
+              confirmButtonColor: '#00e17b',
+              background: '#212121',
+              confirmButtonText: '<a class="fuente">Ok</a>'
+            });
+            this.router.navigateByUrl('/user');
+        });
+        
       }
-
-
       
-      console.log(this.registerUserForm.get('email')?.value)
+      
     }
+
   }
 
 
