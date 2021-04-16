@@ -1,0 +1,77 @@
+<p style="margin-left: auto; margin-right: auto;color: #00e17b; font-family: 'Consolas', cursive; font-size: 18px; ">
+    Nuevo Usuario
+
+</p>
+<p style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 15px; "><small>Despues de crear un nuevo usuario puede verficar en la opción de consultas</small></p>
+<hr>
+
+<div>
+    <form [formGroup]="registerUserForm" (ngSubmit)="crearManager()" autocomplete="off" action="index.html" method="post">
+        <div class="form-group row">
+            <label for="email" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Email</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control estilo" id="email" formControlName="email" name="email">
+                <p  *ngIf="registerUserForm.controls.email.errors" class="forgot text-muted" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Ingrese un correo adecuado</p>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="firstName" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Nombre</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control estilo" id="firstName" formControlName="firstName" name="firstName" >
+                <p  *ngIf="registerUserForm.controls.firstName.errors" class="forgot text-muted" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Campo Requerido</p>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="lastName" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Apellido</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control estilo" id="lastName" formControlName="lastName" name="lastName">
+                <p  *ngIf="registerUserForm.controls.lastName.errors" class="forgot text-muted" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Campo Requerido</p>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="password" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Password</label>
+            <div class="col-sm-6">
+                <input type="password" class="form-control estilo" id="password" formControlName="password" name="password">
+                <p  *ngIf="registerUserForm.controls.password.errors" class="forgot text-muted" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >La contraseña debe contener: [MAY-MIN-NUM-CARACTER ESPECIAL]</p>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="role" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Rol</label>
+            <div class="col-sm-6">
+                <select class="custom-select my-1 mr-sm-2 estilo" id="role" formControlName="role" name="role">
+
+                    
+                    <option>MANAGER</option>
+                    <option>USER</option>
+                    <option>WATCHMAN</option>
+                </select>
+                <p  *ngIf="registerUserForm.controls.role.errors" class="forgot text-muted" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Campo Requerido</p>
+            </div>
+        </div>
+
+        <hr style="background-color: #212121;">
+
+        <div class="form-group row">
+            <label  class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Foto</label>
+            <div class="col-sm-4">
+                <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput" class="form-control estilo" (change)="onFileSelected($event)">
+         
+            </div>
+        </div>
+        <p class="text-muted" style=" font-family: 'Syne Mono', monospace; font-size: 12px;" >Debe adjuntar una foto siempre y cuando el rol sea MANAGER ó USER</p>
+
+        
+
+        <div class="estilo espaciado-uno">
+            <small *ngIf="registerUserForm.invalid" class="form-text " style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80;" >Antes de intentar ingresar valida la estructura de los campos.</small>
+            <small *ngIf="registerUserForm.valid" class="form-text colorSecundario" style="text-align: center; font-family: 'Syne Mono', monospace;" >Hey, genial!</small>
+            <hr>
+            <button [disabled]="registerUserForm.invalid" class="btn btn-success mb-2" type="submit" style="font-family: 'Consolas', cursive; font-size: 12px; background-color: #00e17b;">Crear </button>
+
+        </div>
+    </form>
+</div>

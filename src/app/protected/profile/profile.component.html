@@ -1,0 +1,55 @@
+<div class="container-login100" style="background-color: #262626; padding: 10px;" *ngIf="profile$ | async as profile">
+  <div class="jumbotron " style="background-color: #212121; border-radius: 50px;">
+    <div>
+      <div>
+        <div class="image text-center"> <img src="../../../assets/img/profile-user.svg" class="rounded" width="100">
+          <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace; ">
+            <small style="font-size: 10px; color: #80d8f8;">Imagen de perfil predeterminada
+            </small>
+          </p>
+        </div>
+
+        <hr style=" border-top: 1px solid #00e17b;">
+        <div class="ml-3 w-100">
+          <p class="forgot text-muted" style="font-family: 'Syne Mono', monospace;">
+            <small>Id:
+              <a style="color: #ffffff;">{{ profile.id }}</a>
+            </small>
+          </p>
+          <p class="forgot text-muted" style="font-family: 'Syne Mono', monospace;">
+            <small>Correo Electronico:
+              <a style="color: #ffffff;">{{ profile.email }}</a>
+            </small>
+          </p>
+          <p class="forgot text-muted" style="font-family: 'Syne Mono', monospace;">
+            <small>Rol:
+              <a style="color: #ffffff;">{{ profile.role }}
+              </a>
+            </small>
+          </p>
+        </div>
+        <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace; padding: 2%; text-align: center;">
+          <small style="font-size: 15px; color: #80d8f8; ">Actualiza el PIN
+          </small>
+        </p>
+        <hr style=" border-top: 1px solid #00e17b;">
+        
+        <div class="mt-4 w-100" style="color: #fff">
+
+          <form [formGroup]="updatePinForm" (ngSubmit)="updatePin()">
+            <label for="pin"  class="col-label col-sm-2" style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px;">PIN</label>
+            <input type="number" id="pin" formControlName="pin">
+            <div style="padding-top: 2%;">
+              <p class="text-muted" style=" font-family: 'Syne Mono', monospace; ; text-align: center; font-size: 12px;" >Función solo disponible para rol: MANAGER <br>Se aconseja un número conformado por 4 dígitos. </p>
+            </div>
+            <button [disabled]="!updatePinForm.valid" class="btn btn-success mb-2 center" type="submit" style="font-family: 'Consolas', cursive; font-size: 12px; background-color: #00e17b;">Actualizar PIN</button>
+          
+          </form>
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
