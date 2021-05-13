@@ -6,12 +6,19 @@
 <hr>
 
 <div>
-    <form class="form-inline">
+    <form class="form-inline" [formGroup]="deleteUserForm" (ngSubmit)="deleteUser()"  autocomplete="off">
 
-        <div class="form-group mx-sm-3 mb-2">
-          <input type="text" class="form-control" style="font-family: 'Consolas', cursive; font-size: 12px;" placeholder="Correo">
+        <div class="col-label-4 center">
+          <input type="text" class="form-control" style="font-family: 'Consolas', cursive; font-size: 12px;" placeholder="Correo" id="email" formControlName="email" name="email">
+          <hr>
+          <p  *ngIf="deleteUserForm.controls.email.errors" style="font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Ingrese un correo adecuado</p>
+          <hr>
+          <div class="col-label-4">
+                <button [disabled]="deleteUserForm.invalid" type="submit" class="btn btn-danger mb-2" style="font-family: 'Consolas', cursive; font-size: 12px;">Eliminar</button>
+            </div>
+        
         </div>
-        <button type="submit" class="btn btn-danger mb-2" style="font-family: 'Consolas', cursive; font-size: 12px;">Eliminar</button>
+        
     </form>
     
 </div>

@@ -17,7 +17,7 @@ export class LoginComponent {
   public controlDenegado = " ";
 
   public formLogin: FormGroup = this.fb.group({
-    email: ['spidy@gmail.com', [Validators.required, Validators.email]],
+    email: ['user@test.com', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(2)]]
   });
 
