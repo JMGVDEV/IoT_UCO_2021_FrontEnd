@@ -49,20 +49,25 @@ export class RegisterComponent implements OnInit {
       });
       
     }
-    else{
       Swal.fire({
         title: '<p class="fuente size-fuente" style="color: #FF8A80"><small>Error en el Registro</small></p>',
-        html: '<p class="fuente size-fuente" style="color: #ffffff"><small>Verifica las credenciales e intente nuevamente</small></p>',
+        html: '<p class="fuente size-fuente" style="color: #ffffff"><small>El correo ingresado no esta disponible</small></p>',
         icon: 'error',
         confirmButtonColor: '#00e17b',
         background: '#212121',
         confirmButtonText: '<a class="fuente">Intentar de nuevo</a>'
       });
-    }
- 
   }
 
   public onFileSelected(event: any): void {
     console.log(event.target.files[0]);
   }
 }
+
+
+
+
+
+
+
+

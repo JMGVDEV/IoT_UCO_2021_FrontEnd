@@ -8,6 +8,7 @@ import { UpdatePin } from 'src/app/user/shared/model/update-pin';
 import { SessionService } from 'src/app/user/shared/services/session.service';
 import { UserService } from 'src/app/user/shared/services/user.service';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -29,6 +30,17 @@ export class ProfileComponent implements OnInit {
     this.updatePinForm = this.fb.group({
       pin: [null, Validators.required]
     });
+    
+  }
+
+
+  public vistaManagerActualizarPin(role: any){
+    if (role == 'MANAGER'){
+      return true;
+  }
+  else{
+    return false;
+  }
   }
 
   public updatePin(): void {
