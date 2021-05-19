@@ -10,10 +10,9 @@
                 
             </p> 
             <p style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 15px; "><small>Puede abrir la puerta de la bóveda haciendo uso de sus credenciales.</small></p>
-            <hr>
             
             
-            <form [formGroup]="openDoorForm" (ngSubmit)="nowOpenDoor()" autocomplete="off" action="index.html" method="post" >
+            <form  [formGroup]="openDoorForm" (ngSubmit)="nowOpenDoor()" autocomplete="off" action="index.html" method="post" >
                 <!--
                 <div class="form-group row">
                     <label class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Id Usuario</label>
@@ -32,16 +31,15 @@
                 <div class="center" ></div>
                 <div class="form-group row">
                     <label for="pin"  class="col-label col-sm-2" style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px;">PIN</label>
-                    <div class="col-sm-4">
+                    <div >
                         <input type="number" id="pin" formControlName="pin">
                     </div>
                 </div>
 
-                <div class="form-group row" *ngIf="openDoorForm.get('pin')?.value">
+                <div class="form-group row">
                     <label for="image" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Foto</label>
-                    <div class="col-sm-4">
+                    <div>
                         <input id="image" formControlName="image" name="image" type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput" class="form-control estilo" (change)="onFileSelected($event)">
-                 
                     </div>
                 </div>
 
@@ -49,8 +47,8 @@
                 <hr>
 
                 <p class="text-muted" style=" font-family: 'Syne Mono', monospace; ; text-align: center; font-size: 12px;" >¿Eres usuario manager? <br>  Verifica tus credencial en la parte superior izquierda, sección profile. <br> Además, recuerda cambiar tu pin por seguridad</p>
-                <button [disabled]="openDoorForm.invalid" type="submit" class="btn btn-success mb-2" style="font-family: 'Consolas', cursive; font-size: 17px; background-color: #00e17b;" autocomplete="off">Abrir Puerta ahora</button>
-                <button [disabled]="openDoorForm.invalid" type="submit" class="btn btn-danger mb-2" style="font-family: 'Consolas', cursive; font-size: 17px;" autocomplete="off" (click)="closeDoor()">Cerrar Puerta ahora</button>
+                <button [disabled]="openDoorForm.invalid" type="submit" class="btn btn-success mb-2 margen" style="font-family: 'Consolas', cursive; font-size: 17px; background-color: #00e17b;" autocomplete="off">Abrir </button>
+                <button [disabled]="openDoorForm.invalid" type="submit" class="btn btn-danger mb-2 margen" style="font-family: 'Consolas', cursive; font-size: 17px; " autocomplete="off" (click)="closeDoor()">Cerrar </button>
             
             </form>
         </div>

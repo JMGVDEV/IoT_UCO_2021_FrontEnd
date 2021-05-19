@@ -35,13 +35,13 @@
       <p class="text-muted" style=" font-family: 'Syne Mono', monospace; ; text-align: center;" >Por favor ingrese sus credenciales, todo los datos son obligatorios</p>
       <div style="padding: 10px;">
         <input autocomplete="off" type="text" id="email" formControlName="email" placeholder="Email" >
-        <p  *ngIf="registerForm.controls.email.errors" class="forgot text-muted" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Ingrese un correo adecuado</p>
+        <p  *ngIf="registerForm.controls.email.errors"  style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Ingrese un correo adecuado</p>
         <input autocomplete="off" type="text" id="firstName" formControlName="firstName" placeholder="Nombre">
-        <p  *ngIf="registerForm.controls.firstName.errors" class="forgot text-muted" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Ingrese el nombre del usuario</p>
+        <p  *ngIf="registerForm.controls.firstName.errors" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Ingrese el nombre del usuario</p>
         <input autocomplete="off" type="text" id="lastName" formControlName="lastName" placeholder="Apellido">
-        <p  *ngIf="registerForm.controls.lastName.errors" class="forgot text-muted" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Ingrese el apellido del usuario</p>
+        <p  *ngIf="registerForm.controls.lastName.errors"  style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Ingrese el apellido del usuario</p>
         <input type="password" id="password" placeholder="Password" formControlName="password">
-        <p  *ngIf="registerForm.controls.password.errors" class="forgot text-muted" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Ingrese un correo adecuado</p>
+        <p  *ngIf="registerForm.controls.password.errors" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Ingrese una contraseña segura: (MAYUSCULA-MINUSCULAS-NÚMEROS-MÍNIMO 8 CARÁCTERES-CARACTER ESPECIAL)</p>
         
         <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace; ; text-align: center;">
             <small>¿Ya tienes una cuenta?
@@ -51,8 +51,7 @@
       </div>
   
       <div style="padding-top: 20px;">
-        <small *ngIf="registerForm.invalid" class="form-text " style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80;" >Antes de intentar hacer el registro valida la estructura de los campos a ingresar.</small>
-        <small  *ngIf="registerForm.valid" class="form-text colorSecundario" style="text-align: center; font-family: 'Syne Mono', monospace;" >¡Oye! Esto es Genial</small>
+        <small  *ngIf="registerForm.valid" class="form-text colorSecundario" style="text-align: center; font-family: 'Syne Mono', monospace;" >¡Genuil!</small>
         <input  type="submit"   value="OK" >
       </div>
   

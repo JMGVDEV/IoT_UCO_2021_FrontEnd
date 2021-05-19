@@ -28,6 +28,7 @@
             </small>
           </p>
         </div>
+        <div *ngIf="vistaManagerActualizarPin(profile.role)">
         <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace; padding: 2%; text-align: center;">
           <small style="font-size: 15px; color: #80d8f8; ">Actualiza el PIN
           </small>
@@ -45,7 +46,7 @@
             <button [disabled]="!updatePinForm.valid" class="btn btn-success mb-2 center" type="submit" style="font-family: 'Consolas', cursive; font-size: 12px; background-color: #00e17b;">Actualizar PIN</button>
           
           </form>
-          
+        </div>
           
         </div>
       </div>

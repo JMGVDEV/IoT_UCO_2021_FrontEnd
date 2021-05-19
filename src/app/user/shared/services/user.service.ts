@@ -39,4 +39,9 @@ export class UserService {
     return this.http.post(`${this.urlBase}/upload-face-image`, formData);
   }
 
+  public deleteUser(email: String): Observable<any>{
+    return this.http.delete(`${this.urlBase}/user/delete-user/${email}`);
+  }
+
+
  } 

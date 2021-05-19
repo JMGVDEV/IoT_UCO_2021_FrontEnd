@@ -3,7 +3,10 @@
     <p class="text-muted" style=" font-family: 'Syne Mono', monospace; ; text-align: center;" >Por favor ingrese su usuario y contraseña.</p>
     <div style="padding: 10px;">
       <input autocomplete="off" type="text" formControlName="email" placeholder="Email">
+      <p  *ngIf="formLogin.controls.email.errors"  style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Ingrese un correo adecuado</p>
       <input type="password" minlength="2" placeholder="Password" formControlName="password">
+      <p  *ngIf="formLogin.controls.password.errors" style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Contraseña invalida</p>
+        
       <p class="forgot text-muted" style=" font-family: 'Syne Mono', monospace; ; text-align: center;">
           <small>¿No tienes una cuenta?
             <a routerLink="/auth/register" style=" color: #80d8ff;">Unete</a>
@@ -12,8 +15,6 @@
     </div>
 
     <div style="padding-top: 20px;">
-      <small *ngIf="formLogin.invalid" class="form-text " style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80;" >Antes de intentar ingresar valida la estructura de los campos a ingresar.</small>
-      <small *ngIf="formLogin.valid" class="form-text colorSecundario" style="text-align: center; font-family: 'Syne Mono', monospace;" >Mucho mejor</small>
       <input  type="submit" [disabled]="formLogin.invalid" value="OK" >
     </div>
 

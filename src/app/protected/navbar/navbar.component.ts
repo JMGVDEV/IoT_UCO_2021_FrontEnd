@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth/services/auth.service';
+import { Observable } from 'rxjs';
+import { Profile } from 'src/app/auth/services/profile';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +11,12 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  public profile$!: Observable<Profile>;
+
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.profile$ = this.authService.validarToken();
   }
   logout(){
     this.router.navigateByUrl('/auth/login');
@@ -39,6 +45,18 @@ export class NavbarComponent implements OnInit {
 
   recursos(){
     this.router.navigateByUrl('/dashboard/open-door')
+  }
+
+  public vistaUserWatchman(role: any){
+    if(role == 'USER'){
+      return false;
+    }
+    else if (role == 'WATCHMAN'){
+      return false;
+    }
+    else{
+      return true;
+    }
   }
 
 
