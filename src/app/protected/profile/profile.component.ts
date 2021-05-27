@@ -8,7 +8,6 @@ import { UpdatePin } from 'src/app/user/shared/model/update-pin';
 import { SessionService } from 'src/app/user/shared/services/session.service';
 import { UserService } from 'src/app/user/shared/services/user.service';
 
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -55,4 +54,17 @@ export class ProfileComponent implements OnInit {
       this.userService.updatePin(updatedPin).subscribe();
     }
   }
+
+  public onFileSelected(event: any): void {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      //this.registerUserForm.get('profile')?.setValue(file);
+      const formData = new FormData();
+      formData.append('photo', file);
+      console.log(formData);
+      this.userService.setImageUser(formData).subscribe();
+  
+    }   
+  }
+  
 }
