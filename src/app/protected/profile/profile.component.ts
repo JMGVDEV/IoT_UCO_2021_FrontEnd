@@ -7,6 +7,8 @@ import { Profile } from 'src/app/auth/services/profile';
 import { UpdatePin } from 'src/app/user/shared/model/update-pin';
 import { SessionService } from 'src/app/user/shared/services/session.service';
 import { UserService } from 'src/app/user/shared/services/user.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -22,7 +24,8 @@ export class ProfileComponent implements OnInit {
     private authService: AuthService,
     private userService: UserService,
     private sessionService: SessionService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private router: Router) { }
 
   public ngOnInit(): void {
     this.profile$ = this.authService.validarToken();
@@ -45,13 +48,21 @@ export class ProfileComponent implements OnInit {
   public updatePin(): void {
     if (this.updatePinForm.valid) {
       const { email } = jwt_decode(this.sessionService.accessToken) as any;
-
       const updatedPin: UpdatePin = {
         email,
         pin: this.updatePinForm.get('pin')?.value
       };
-
-      this.userService.updatePin(updatedPin).subscribe();
+      this.userService.updatePin(updatedPin).subscribe(resp => {
+        Swal.fire({
+          title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>Todo salió bien</small></p>',
+          html: '<p class="fuente size-fuente" style="color: #ffffff"><small></small>Tu pin de seguridad ha sido actualizado</p>',
+          icon: 'success',
+          confirmButtonColor: '#00e17b',
+          background: '#212121',
+          confirmButtonText: '<a class="fuente">Ok</a>'
+        });
+        this.router.navigateByUrl('/dashboard/open-door');
+      });
     }
   }
 
