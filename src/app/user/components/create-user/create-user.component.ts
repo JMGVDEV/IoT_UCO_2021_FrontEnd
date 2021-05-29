@@ -59,9 +59,11 @@ export class CreateUserComponent implements OnInit{
   public vistaManager(role:any){
     if (role == 'MANAGER'){
         return true;
+        
     }
     else{
       return false;
+      
     }
   }
 

@@ -68,7 +68,7 @@
 
         <hr style="background-color: #212121;">
 
-        <div class="form-group row">
+        <div class="form-group row"  *ngIf="vistaManager(profile.role)">
             <label  class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Foto</label>
             <div class="col-sm-4">
                 <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput" class="form-control estilo" (change)="onFileSelected($event)">
@@ -80,19 +80,16 @@
 
         <div >
             <small *ngIf="registerUserForm.valid" class="form-text colorSecundario" style="text-align: center; font-family: 'Syne Mono', monospace;" >Hey, genial!</small>
-            <hr>
+            <br>
             <button [disabled]="registerUserForm.invalid" class="btn btn-success mb-2" type="submit" style="font-family: 'Consolas', cursive; font-size: 12px; background-color: #00e17b;">Crear </button>
 
         </div>
-
-        <div class="ml-3 w-100" >
-            <p class="forgot text-muted" style="font-family: 'Syne Mono', monospace;">
-              <small>Id:
-                <a style="color: #ffffff;">{{ profile.role }}</a>
-              </small>
-            </p>
-            
-          </div>
+        
+        <!-- 
+            <h1 style="color: white;">{{profile.role}}</h1>
+        -->
+        
+        
 
     </form>
 </div>

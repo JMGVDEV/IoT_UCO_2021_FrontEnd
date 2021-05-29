@@ -22,6 +22,10 @@ export class AuthService {
     return this.http.post<AuthResponse>(url, loginBody);
   }
 
+  public logout(){
+    sessionStorage.clear();
+  }
+
   public validarToken(): Observable<Profile> {
     const dir = `${this.urlBase}/auth/profile`;
     const headers = new HttpHeaders()
