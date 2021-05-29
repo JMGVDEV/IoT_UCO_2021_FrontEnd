@@ -40,6 +40,7 @@
           <form [formGroup]="updatePinForm" (ngSubmit)="updatePin()">
             <label for="pin"  class="col-label col-sm-2" style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px;">PIN</label>
             <input type="number" id="pin" formControlName="pin">
+            <p  *ngIf="updatePinForm.controls.pin.errors"  style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px; padding: 5px;" >Nuevo pin de seguridad(4 digitos)</p>
             <div style="padding-top: 2%;">
               <p class="text-muted" style=" font-family: 'Syne Mono', monospace; ; text-align: center; font-size: 12px;" >Función solo disponible para rol: MANAGER <br>Se aconseja un número conformado por 4 dígitos. </p>
             </div>

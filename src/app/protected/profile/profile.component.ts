@@ -19,6 +19,9 @@ export class ProfileComponent implements OnInit {
 
   public profile$!: Observable<Profile>;
   public updatePinForm!: FormGroup;
+  public pinPattern = "[0-9]{4}";
+
+
 
   constructor(
     private authService: AuthService,
@@ -30,7 +33,7 @@ export class ProfileComponent implements OnInit {
   public ngOnInit(): void {
     this.profile$ = this.authService.validarToken();
     this.updatePinForm = this.fb.group({
-      pin: [null, Validators.required]
+      pin: [null, [Validators.required, Validators.pattern(this.pinPattern)]]
     });
     
   }
