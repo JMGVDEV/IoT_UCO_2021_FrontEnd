@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 
-<div class="espaciado-uno" style="background-color: #262626">
+<div class="espaciado-uno" style="background-color: #262626; padding-top: 100px;" *ngIf="profile$ | async as profile">
 
     <h1 style=" color: #80d8ff; font-family: 'Syne Mono', monospace; text-align: center;">
         Manejo de Citas</h1>
@@ -11,14 +11,14 @@
         <hr class="my-4">
         <ul class="nav nav-tabs">
             
-            <li class="nav-item">
+            <li *ngIf="vistaUser(profile.role)" class="nav-item">
                 <a routerLink="./create" class="nav-link" style=" margin-left: auto; margin-right: auto;color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px;">Nueva Cita</a>
             </li>
-            <li class="nav-item">
+            <li *ngIf="vistaManager(profile.role)" class="nav-item">
                 <a routerLink="./delete" class="nav-link" style=" margin-left: auto; margin-right: auto;color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px;">Eliminar Cita</a>
             </li>
-            <li class="nav-item">
-                <a routerLink="./get" class="nav-link" style=" margin-left: auto; margin-right: auto;color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px;">Listar Citas</a>
+            <li *ngIf="vistaManager(profile.role)" class="nav-item">
+                <a routerLink="./get" class="nav-link" style=" margin-left: auto; margin-right: auto;color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px;">Administración de Citas</a>
             </li>
         </ul>
         <div class="espaciado-uno">

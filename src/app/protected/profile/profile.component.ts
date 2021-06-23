@@ -9,11 +9,11 @@ import { SessionService } from 'src/app/user/shared/services/session.service';
 import { UserService } from 'src/app/user/shared/services/user.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { CreateUserComponent } from '../../user/components/create-user/create-user.component';
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  templateUrl: './profile.component.html'
 })
 export class ProfileComponent implements OnInit {
 
@@ -28,7 +28,8 @@ export class ProfileComponent implements OnInit {
     private userService: UserService,
     private sessionService: SessionService,
     private fb: FormBuilder,
-    private router: Router) { }
+    private router: Router,
+    /*private createUserComponent: CreateUserComponent*/) { }
 
   public ngOnInit(): void {
     this.profile$ = this.authService.validarToken();
@@ -64,7 +65,7 @@ export class ProfileComponent implements OnInit {
           background: '#212121',
           confirmButtonText: '<a class="fuente">Ok</a>'
         });
-        this.router.navigateByUrl('/dashboard/open-door');
+        this.router.navigateByUrl('/dashboard/home');
       });
     }
   }
@@ -72,7 +73,7 @@ export class ProfileComponent implements OnInit {
   public onFileSelected(event: any): void {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      //this.registerUserForm.get('profile')?.setValue(file);
+      //this.createUserComponent.registerUserForm.get('profile')?.setValue(file);
       const formData = new FormData();
       formData.append('photo', file);
       console.log(formData);

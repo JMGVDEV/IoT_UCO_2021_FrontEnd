@@ -19,7 +19,7 @@ export class LoginComponent {
   public controlDenegado = " ";
 
   public formLogin: FormGroup = this.fb.group({
-    email: ['user@test.com', [Validators.required, Validators.pattern(this.emailPattern)]],
+    email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
     password: ['', [Validators.required, Validators.pattern(this.passwordPattern)]]
   });
 
@@ -36,17 +36,32 @@ export class LoginComponent {
     };
     if(this.formLogin.valid){
       this.authService.login(loginBody).subscribe(resp => {
-        Swal.fire({
-          title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>Bienvenido</small></p>',
-          html: '<p class="fuente size-fuente" style="color: #ffffff"><small></small>Chevere tenerte de vuelta</p>',
-          icon: 'success',
-          confirmButtonColor: '#00e17b',
-          background: '#212121',
-          confirmButtonText: '<a class="fuente">Ok</a>'
-        });
-        this.router.navigateByUrl('/dashboard');
-        this.sessionService.accessToken = resp.accessToken;
+        if(resp.accessToken){
+          Swal.fire({
+            title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>Bienvenido</small></p>',
+            html: '<p class="fuente size-fuente" style="color: #ffffff"><small></small>Chevere tenerte de vuelta</p>',
+            icon: 'success',
+            confirmButtonColor: '#00e17b',
+            background: '#212121',
+            confirmButtonText: '<a class="fuente">Ok</a>'
+          });
+          this.router.navigateByUrl('/dashboard');
+          this.sessionService.accessToken = resp.accessToken;
+        }
+        else if(resp){
+          Swal.fire({
+            title: '<p class="fuente size-fuente" style="color: #FF8A80"><small>Error de Autenticación</small></p>',
+            html: '<p class="fuente size-fuente" style="color: #ffffff"><small>Verifica las credenciales e intente nuevamente</small></p>',
+            icon: 'error',
+            confirmButtonColor: '#00e17b',
+            background: '#212121',
+            confirmButtonText: '<a class="fuente">Intentar de nuevo</a>'
+          });
+        }
     });
+    
+    }
+    else{
       Swal.fire({
         title: '<p class="fuente size-fuente" style="color: #FF8A80"><small>Error de Autenticación</small></p>',
         html: '<p class="fuente size-fuente" style="color: #ffffff"><small>Verifica las credenciales e intente nuevamente</small></p>',
@@ -56,5 +71,6 @@ export class LoginComponent {
         confirmButtonText: '<a class="fuente">Intentar de nuevo</a>'
       });
     }
+     
   }
 }

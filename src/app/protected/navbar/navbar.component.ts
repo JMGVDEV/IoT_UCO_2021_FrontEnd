@@ -48,6 +48,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('/dashboard/open-door')
   }
 
+  public vault(){
+    this.router.navigateByUrl('/dashboard/myvault');
+  }
+
   public vistaUserWatchman(role: any){
     if(role == 'USER'){
       return false;

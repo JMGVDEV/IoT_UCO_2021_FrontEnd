@@ -1,8 +1,8 @@
-<div class="espaciado-uno" style="background-color: #262626" *ngIf="profile$ | async as profile">
+<div class="espaciado-uno" style="background-color: #262626; padding-top: 100px;"  *ngIf="profile$ | async as profile">
     <div *ngIf="permisoVista(profile.role)" >
         
         <h1 style=" color: #80d8ff; font-family: 'Syne Mono', monospace; text-align: center;">
-            Ingreso a Bóveda</h1>
+            Abrir Bóveda Principal</h1>
         <!-- 
             <h1 style="color: white;"> {{profile.role}}</h1>
         -->
@@ -33,17 +33,17 @@
                     -->
                     <hr>
                     <div class="center" ></div>
-                    <div class="form-group row">
-                        <label for="pin"  class="col-label col-sm-2" style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px;">PIN</label>
+                    <div class="form-group row center">
+                        <label for="pin"  class="col-label label-text" ></label>
                         <div >
-                            <input type="number" id="pin" formControlName="pin">
+                            <input type="number" id="pin" formControlName="pin" placeholder=" Pin" style="font-family: 'Syne Mono', monospace;">
                             <p  *ngIf="openDoorForm.controls.pin.errors"  style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px; padding: 5px;" >Ingrese el pin de seguridad (4 digítos)</p>
                         </div>
                     </div>
-                
+                    <br>
                     <div class="form-group row">
-                        <label for="image" class="col-label col-sm-2"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">Foto</label>
-                        <div>
+                        <label for="image" class="col-label"  style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; "></label>
+                        <div class="center">
                             <input id="image" formControlName="image" name="image" type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput" class="form-control estilo" (change)="onFileSelected($event)">
                             <p  *ngIf="openDoorForm.controls.image.errors"  style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px; padding: 5px;" >Adjunte su foto (Lo estamos observando)</p>
                         </div>
@@ -52,7 +52,7 @@
                     
                     <hr>
                 
-                    <p class="text-muted" style=" font-family: 'Syne Mono', monospace; ; text-align: center; font-size: 12px;" >¿Eres usuario manager? <br>  Verifica tus credencial en la parte superior izquierda, sección profile. <br> Además, recuerda cambiar tu pin por seguridad</p>
+                    <p class="text-muted" style=" font-family: 'Syne Mono', monospace; text-align: center; font-size: 12px;" >¿Eres usuario manager? <br>  Verifica tus credencial en la parte superior izquierda, sección profile. <br> Además, recuerda cambiar tu pin por seguridad</p>
                     <button [disabled]="openDoorForm.invalid" type="submit" class="btn btn-success mb-2 margen" style="font-family: 'Consolas', cursive; font-size: 17px; background-color: #00e17b;" autocomplete="off">Abrir </button>
                     <button [disabled]="openDoorForm.invalid" type="submit" class="btn btn-danger mb-2 margen" style="font-family: 'Consolas', cursive; font-size: 17px; " autocomplete="off" (click)="closeDoor()">Cerrar </button>    
                 </form>

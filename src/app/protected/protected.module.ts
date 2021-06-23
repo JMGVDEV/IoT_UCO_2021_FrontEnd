@@ -9,9 +9,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { OpenDoorComponent } from './open-door/open-door.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VaultComponent } from './vault/vault.component';
 
 @NgModule({
-  declarations: [DashboardComponent, NavbarComponent, FooterComponent, ProfileComponent, HomeComponent, OpenDoorComponent],
+  declarations: [DashboardComponent, NavbarComponent, FooterComponent, ProfileComponent, HomeComponent, OpenDoorComponent, VaultComponent],
   imports: [
     CommonModule,
     ProtectedRoutingModule,

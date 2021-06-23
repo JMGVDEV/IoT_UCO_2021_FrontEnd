@@ -176,3 +176,11 @@
     height: auto;
   }
   
+  .label-text{
+    font-family: 'Consolas', cursive;
+    
+  }
+
+  .padding-top{
+    padding-top: 3%;
+  }
