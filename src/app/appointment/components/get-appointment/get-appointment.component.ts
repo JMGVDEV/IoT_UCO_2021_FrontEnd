@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AppointmentServiceService } from '../../shared/service/appointment-service.service';
 
 @Component({
   selector: 'app-get-appointment',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetAppointmentComponent implements OnInit {
 
-  constructor() { }
+
+  public appointment$!: Observable<any[]>;
+  constructor(
+    private appointmentService: AppointmentServiceService
+  ) { }
 
   ngOnInit(): void {
+    this.appointment$ = this.appointmentService.getAppointment();
   }
 
 }

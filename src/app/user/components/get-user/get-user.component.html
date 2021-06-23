@@ -8,46 +8,22 @@
   <table class=" table-dark table-bordered table table-hover">
     <thead>
       <tr>
-        <th
-          style=" margin-left: auto; margin-right: auto;color: #00e17b; font-family: 'Consolas', cursive; font-size: 12px; ">
-          Id</th>
-        <th
-          style=" margin-left: auto; margin-right: auto;color: #00e17b; font-family: 'Consolas', cursive; font-size: 12px;">
-          Nombre</th>
-        <th
-          style=" margin-left: auto; margin-right: auto;color: #00e17b; font-family: 'Consolas', cursive; font-size: 12px;">
-          Apellido</th>
-        <th
-          style=" margin-left: auto; margin-right: auto;color: #00e17b; font-family: 'Consolas', cursive; font-size: 12px;">
-          Rol</th>
-        <th
-          style=" margin-left: auto; margin-right: auto;color: #00e17b; font-family: 'Consolas', cursive; font-size: 12px;">
-          Correo</th>
-        <th
-          style=" margin-left: auto; margin-right: auto;color: #00e17b; font-family: 'Consolas', cursive; font-size: 12px;">
-          Estado</th>
+        <th class="th-style"> Id</th>
+        <th class="th-style"> Nombre</th>
+        <th class="th-style"> Apellido</th>
+        <th class="th-style"> Rol</th>
+        <th class="th-style"> Correo</th>
+        <th class="th-style"> Estado</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of users$ | async">
-        <td
-          style=" margin-left: auto; margin-right: auto;color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px;">
-          {{ user.id }}</td>
-        <td
-          style=" margin-left: auto; margin-right: auto;color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">
-          <strong>{{ user.firstName }}</strong></td>
-        <td
-          style=" margin-left: auto; margin-right: auto;color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">
-          <strong>{{ user.lastName }}</strong></td>
-        <td
-          style=" margin-left: auto; margin-right: auto;color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">
-          <strong>{{ user.role }}</strong></td>
-        <td
-          style=" margin-left: auto; margin-right: auto;color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">
-          <strong>{{ user.email }}</strong></td>
-        <td
-          style=" margin-left: auto; margin-right: auto;color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; ">
-          <strong>{{ user.isActive }}</strong></td>
+        <td class="td-style">{{ user.id }}</td>
+        <td class="td-style"><strong>{{ user.firstName }}</strong></td>
+        <td class="td-style"><strong>{{ user.lastName }}</strong></td>
+        <td class="td-style"><strong>{{ user.role }}</strong></td>
+        <td class="td-style"><strong>{{ user.email }}</strong></td>
+        <td class="td-style"><strong>{{ user.isActive }}</strong></td>
       </tr>
     </tbody>
   </table>
