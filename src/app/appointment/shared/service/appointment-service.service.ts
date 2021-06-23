@@ -23,4 +23,18 @@ export class AppointmentServiceService {
   public getAppointment(): Observable<any[]>{
     return this.http.get<any[]>(`${this.urlBase}/appointment/get-all-appointments`)
   }
+
+  public deleteAppointment(id: String): Observable<any>{
+    return this.http.delete(`${this.urlBase}/appointment/delete-appointment/${id}`);
+  }
+
+  public acceptAppointment(idCita: String): Observable<any>{
+    return this.http.put(`${this.urlBase}/appointment/accept-appointment/${idCita}`, idCita);
+  }
+
+  public rejectAppointment(idCita: String): Observable<any>{
+    return this.http.put(`${this.urlBase}/appointment/reject-appointment/${idCita}`, idCita);
+  }
+
+  
 }

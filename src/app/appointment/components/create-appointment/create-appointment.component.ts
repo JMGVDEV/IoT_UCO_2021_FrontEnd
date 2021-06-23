@@ -5,6 +5,8 @@ import { AuthService } from '../../../auth/services/auth.service';
 import { Profile } from '../../../auth/services/profile';
 import { Observable } from 'rxjs';
 import { AppointmentServiceService } from '../../shared/service/appointment-service.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-appointment',
@@ -15,11 +17,14 @@ export class CreateAppointmentComponent implements OnInit {
 
   public profile$!: Observable<Profile>;
   public profileTest!: Profile;
+  public userTYasd!: String;
   
 
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
-              private appointmentService: AppointmentServiceService) { }
+              private appointmentService: AppointmentServiceService,
+              private router: Router
+              ) { }
 
   ngOnInit(): void {
     this.profile$ = this.authService.validarToken();
@@ -40,8 +45,8 @@ export class CreateAppointmentComponent implements OnInit {
   }
 
   public test(id: any){
-    this.profileTest.id = id;
-    console.log(id)
+    this.userTYasd = id;
+    console.log(this.userTYasd)
   }
 
 
@@ -49,12 +54,24 @@ export class CreateAppointmentComponent implements OnInit {
   public createAppointment(): void{
     
       const payload: any ={
-        userId: this.test,
+        userId: this.userTYasd,
         date: this.crearAppointmentForm.get('date')?.value
       }
 
       console.log(payload.date)
-      //this.appointmentService.createAppointment(payload).subscribe();
+      console.log(this.userTYasd)
+    
+      this.appointmentService.createAppointment(payload).subscribe();
+      Swal.fire({
+        title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>Tu cita quedó registrada correctamente</small></p>',
+        html: '<p class="fuente size-fuente" style="color: #ffffff"><small>El gerente en breve te dará una respuesta</small></p>',
+        icon: 'success',
+        confirmButtonColor: '#00e17b',
+        background: '#212121',
+        confirmButtonText: '<a class="fuente">Ok</a>'
+      });
+      this.router.navigateByUrl('/dashboard/home');
+      
     
   }
 

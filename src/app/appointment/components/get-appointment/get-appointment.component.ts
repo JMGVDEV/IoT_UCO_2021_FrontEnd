@@ -9,6 +9,7 @@ import { AppointmentServiceService } from '../../shared/service/appointment-serv
 })
 export class GetAppointmentComponent implements OnInit {
 
+  public idCitaPorFila!: String;
 
   public appointment$!: Observable<any[]>;
   constructor(
@@ -18,5 +19,18 @@ export class GetAppointmentComponent implements OnInit {
   ngOnInit(): void {
     this.appointment$ = this.appointmentService.getAppointment();
   }
+
+  public accept(id: String){
+    this.idCitaPorFila = id;
+    console.log(this.idCitaPorFila)
+    this.appointmentService.acceptAppointment(this.idCitaPorFila).subscribe();
+  }
+
+  public reject(id: String){
+    this.idCitaPorFila = id;
+    console.log(this.idCitaPorFila)
+    this.appointmentService.rejectAppointment(this.idCitaPorFila).subscribe();
+  }
+
 
 }

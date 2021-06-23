@@ -10,18 +10,31 @@
         
         <thead>
           <tr>
+            <th class="th-style">#</th>
             <th class="th-style">Id-Cita</th>
             <th class="th-style">Fecha</th>
             <th class="th-style">Estado de la Cita</th>
+            <th class="th-style">Administrar</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let appointment of appointment$ | async">
+          <tr *ngFor="let appointment of appointment$ | async; let i = index">
+            <td class="td-style">{{ i + 1}}</td>
             <td class="td-style">{{ appointment.id }}</td>
             <td class="td-style"><strong>{{ appointment.date }}</strong></td>
             <td class="td-style"><strong>{{ appointment.status }}</strong></td>
-            
+            <td>
+              <div>
+                <button type="submit" class="btn btn-danger mb-2 " style="font-family: 'Consolas', cursive; font-size: 12px;" (click)="reject(appointment.id)" >X</button>
+                <button type="submit" class="btn btn-success mb-2" style="font-family: 'Consolas', cursive; font-size: 12px; margin-left: 2%;" (click)="accept(appointment.id)" >OK</button>
+              </div></td>
           </tr>
         </tbody>
+        
       </table>
+
+      
+        
+      
+      
     </form>

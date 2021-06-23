@@ -8,16 +8,18 @@
   <table class=" table-dark table-bordered table table-hover">
     <thead>
       <tr>
+        <th class="th-style"> #</th>
         <th class="th-style"> Id</th>
         <th class="th-style"> Nombre</th>
         <th class="th-style"> Apellido</th>
         <th class="th-style"> Rol</th>
         <th class="th-style"> Correo</th>
-        <th class="th-style"> Estado</th>
+        <th class="th-style"> Activo</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users$ | async">
+      <tr *ngFor="let user of users$ | async; let i = index">
+        <td class="td-style">{{ i + 1 }}</td>
         <td class="td-style">{{ user.id }}</td>
         <td class="td-style"><strong>{{ user.firstName }}</strong></td>
         <td class="td-style"><strong>{{ user.lastName }}</strong></td>

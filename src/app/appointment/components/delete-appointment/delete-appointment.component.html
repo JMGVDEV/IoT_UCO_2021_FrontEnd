@@ -2,16 +2,25 @@
     Eliminar Cita
     
 </p> 
-<p style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; "><small>Digite el ID de la cita a eliminar, en la sección de *Listar Citas* puede verlo.</small></p>
+<p style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 12px; "><small>Digite el ID de la cita a eliminar, en la sección de *Administración de Citas* puede verlo.</small></p>
 <hr>
 
 <div>
-    <form class="form-inline">
+    <form class="form-inline" [formGroup]="deleteAppointmentForm" (ngSubmit)="deleteAppointment()">
 
-        <div class="form-group mx-sm-3 mb-2">
-          <input type="text" class="form-control" style="font-family: 'Consolas', cursive; font-size: 12px;" placeholder="Id Cita">
-        </div>
-        <button type="submit" class="btn btn-danger mb-2" style="font-family: 'Consolas', cursive; font-size: 12px;">Eliminar</button>
+        <<div class="col-label-4 center">
+            <input type="text" class="form-control" style="font-family: 'Consolas', cursive; font-size: 12px;" placeholder="Id-Cita" autocomplete="false" formControlName="id">
+            <hr>
+        <!-- 
+            <input type="text" class="form-control" style="font-family: 'Consolas', cursive; font-size: 12px;" placeholder="Id-Cita" id="email" formControlName="email" name="email">
+        -->
+            <p *ngIf="deleteAppointmentForm.controls.id.errors" style="font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px;" >Ingrese el id de la cita que desea eliminar</p>
+            <hr>
+            <div class="col-label-4">
+                  <button  type="submit" class="btn btn-danger mb-2" style="font-family: 'Consolas', cursive; font-size: 12px;">Eliminar</button>
+              </div>
+          
+          </div>
     </form>
     
 </div>
