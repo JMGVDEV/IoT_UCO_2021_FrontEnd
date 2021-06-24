@@ -1,1 +1,37 @@
-<p>vault works!</p>
+<div class="espaciado-uno" style="background-color: #262626; padding-top: 100px;"  *ngIf="profile$ | async as profile">
+    <div *ngIf="permisoVista(profile.role)" >
+        
+        <h1 style=" color: #80d8ff; font-family: 'Syne Mono', monospace; text-align: center;">
+            </h1>
+            
+        <div class="image text-center"> <img src="../../../assets/img/caja-fuerte.svg" class="rounded" width="200" >
+            <div class="espaciado-uno">
+                <p style="margin-left: auto; margin-right: auto;color: #00e17b; font-family: 'Consolas', cursive; font-size: 18px; "> 
+                      
+                </p> 
+                <p style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 15px; "><small>En este apartado puedes validar tus pertenencias, clasificadas en diamentes y oro.</small></p>
+                
+                <hr >
+                <form>
+                    <div class="container" style="padding: 3%;">
+                        <div class="row">
+                          <div class="col-sm">
+                              <h1 style="margin-left: auto; margin-right: auto;color: #fff; font-family: 'Consolas', cursive; font-size: 25px; ">TOTAL ORO EN GRAMOS</h1>
+                            <p style="margin-left: auto; margin-right: auto;color: #fff; font-family: 'Consolas', cursive; font-size: 18px; "> 
+                                <img src="../../../assets/img/moneda.svg" class="rounded" width="100px" ><h1> 25 </h1>
+                            </p> 
+                          </div>
+                          <div class="col-sm">
+                            <h1 style="margin-left: auto; margin-right: auto;color: #fff; font-family: 'Consolas', cursive; font-size: 25px; ">TOTAL DIAMANTES EN GRAMOS</h1>
+                            <p style="margin-left: auto; margin-right: auto;color: #ffff; font-family: 'Consolas', cursive; font-size: 18px; "> 
+                                <img src="../../../assets/img/diamante.svg" class="rounded" width="100px" ><h1> 30 </h1>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                  </form>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="notFount(profile.role)" class="image text-center espaciado-uno"> <img src="../../../assets/img/404.svg" class="rounded" width="100px" ></div>
+</div>
