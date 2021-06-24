@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { OpenDoorDto } from 'src/app/protected/open-door/shared/model/open-door-manager';
 import { environment } from 'src/environments/environment';
-import { OpenDoorDto } from '../model/open-door-manager';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class OpenDoorService {
+export class OpenDoorUserService {
   private urlBase: string = environment.urlBase;
 
   constructor(private http: HttpClient) { }
@@ -19,11 +19,11 @@ export class OpenDoorService {
     return this.http.post(`${this.urlBase}/validate-face-image`, formData);
   }
 
-  public closeDoor(openDoorDto: OpenDoorDto): Observable<any> {
-    return this.http.post(`${this.urlBase}/close-door`, openDoorDto);
+  public closeBox(openDoorDto: OpenDoorDto): Observable<any> {
+    return this.http.post(`${this.urlBase}/close-box`, openDoorDto);
   }
 
-  public openDoor(openDoorDto: OpenDoorDto): Observable<any> {
-    return this.http.post(`${this.urlBase}/open-door`, openDoorDto);
+  public openBox(openDoorDto: OpenDoorDto): Observable<any> {
+    return this.http.post(`${this.urlBase}/open-box`, openDoorDto);
   }
 }

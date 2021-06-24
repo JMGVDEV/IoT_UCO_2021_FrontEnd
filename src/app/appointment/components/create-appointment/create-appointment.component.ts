@@ -57,21 +57,17 @@ export class CreateAppointmentComponent implements OnInit {
         userId: this.userTYasd,
         date: this.crearAppointmentForm.get('date')?.value
       }
-
-      console.log(payload.date)
-      console.log(this.userTYasd)
     
       this.appointmentService.createAppointment(payload).subscribe();
       Swal.fire({
         title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>Tu cita quedó registrada correctamente</small></p>',
-        html: '<p class="fuente size-fuente" style="color: #ffffff"><small>El gerente en breve te dará una respuesta</small></p>',
+        html: '<p class="fuente size-fuente" style="color: #ffffff"><small>El gerente en breve te dará una respuesta, recuerde que tiene 1 hora para abrir la puerta a partir del inicio de la cita.</small></p>',
         icon: 'success',
         confirmButtonColor: '#00e17b',
         background: '#212121',
         confirmButtonText: '<a class="fuente">Ok</a>'
       });
       this.router.navigateByUrl('/dashboard/home');
-      
     
   }
 

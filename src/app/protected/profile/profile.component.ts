@@ -41,7 +41,7 @@ export class ProfileComponent implements OnInit {
 
 
   public vistaManagerActualizarPin(role: any){
-    if (role == 'MANAGER'){
+    if (role == 'MANAGER' || role === 'USER'){
       return true;
   }
   else{

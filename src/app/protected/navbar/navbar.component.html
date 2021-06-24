@@ -29,7 +29,9 @@
                 <a type="submit" (click)="recursos()" routerLinkActive="active" style="color: #00e17b; font-family: 'Rajdhani', sans-serif;  "> Bóveda</a>
               </li>
               
-              
+              <li class="nav-item" style="padding: 5%;" *ngIf="vistaUser(profiles.role)">
+                <a type="submit" (click)="openBox()" routerLinkActive="active" style="color: #00e17b; font-family: 'Rajdhani', sans-serif;  ">Caja</a>
+              </li>
             </ul>
           </div>
 

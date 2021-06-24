@@ -17,8 +17,6 @@ export class ValidarTokenGuard implements CanActivate, CanLoad {
   
   
   canActivate(): Observable<boolean>|  boolean {
-    console.log('canActive');
-    console.log(this.authService.validarToken)
     if(sessionStorage.getItem('token')){
       return true
     }else{
@@ -28,7 +26,6 @@ export class ValidarTokenGuard implements CanActivate, CanLoad {
     
   }
   canLoad(): Observable<boolean>|  boolean {
-    console.log('canLoad');
     if(sessionStorage.getItem('token')){
       return true
     }else{

@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Appointment } from '../model/appointment';
 import { environment } from '../../../../environments/environment.prod';
+import * as moment from 'moment';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,13 @@ export class AppointmentServiceService {
   }
 
   public getAppointment(): Observable<any[]>{
-    return this.http.get<any[]>(`${this.urlBase}/appointment/get-all-appointments`)
+    return this.http.get<any[]>(`${this.urlBase}/appointment/get-all-appointments`).pipe(map((response: any) => {
+      for (let item of response) {
+        moment.locale('es');
+        item.date = moment(item.date).format('LLL');
+      }
+      return response;
+    }))
   }
 
   public deleteAppointment(id: String): Observable<any>{
@@ -36,5 +44,7 @@ export class AppointmentServiceService {
     return this.http.put(`${this.urlBase}/appointment/reject-appointment/${idCita}`, idCita);
   }
 
-  
+  public completeAppointment(idCita: String): Observable<any>{
+    return this.http.put(`${this.urlBase}/appointment/complete-appointment/${idCita}`, idCita);
+  }
 }

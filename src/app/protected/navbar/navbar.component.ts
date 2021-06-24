@@ -48,6 +48,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('/dashboard/open-door')
   }
 
+  openBox() {
+    this.router.navigateByUrl('/dashboard/open-box');
+  }
+
   public vault(){
     this.router.navigateByUrl('/dashboard/myvault');
   }
@@ -63,6 +67,16 @@ export class NavbarComponent implements OnInit {
       return true;
     }
   }
+
+  public vistaUser(role: any){
+    if(role == 'USER'){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
 
 
 }

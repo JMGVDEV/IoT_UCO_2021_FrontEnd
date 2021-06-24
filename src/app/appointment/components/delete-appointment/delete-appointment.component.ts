@@ -29,7 +29,7 @@ export class DeleteAppointmentComponent implements OnInit {
       this.appointmentService.deleteAppointment(payload.id).subscribe(resp =>{
         Swal.fire({
           title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>Cita Eliminada con Éxito</small></p>',
-          html: '<p class="fuente size-fuente" style="color: #ffffff"><small></small>Puedes consultarlo aquí</p>',
+          html: '<p class="fuente size-fuente" style="color: #ffffff"><small></small></p>',
           icon: 'success',
           confirmButtonColor: '#00e17b',
           background: '#212121',

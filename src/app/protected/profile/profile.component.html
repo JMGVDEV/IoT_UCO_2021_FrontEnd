@@ -31,9 +31,9 @@
         <div *ngIf="vistaManagerActualizarPin(profile.role)">
           <div  class="mt-4 w-100">
             <label  class="col-label col-sm-2 forgot text-muted"  style="font-family: 'Syne Mono', monospace;"><a><small>Image: </small></a></label>
-            <div class="col-sm-10">
-                <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput" class="form-control estilo" (change)="onFileSelected($event)" style="font-family: 'Consolas', cursive; font-size: 12px; ">
-                <p class="text-muted " style=" font-family: 'Syne Mono', monospace; font-size: 12px; text-align: center;" >---</p>
+            <div class="col-sm-10" style="margin: 0 auto;">
+                <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput" class="form-control estilo" (change)="onFileSelected($event)" style="font-family: 'Consolas', cursive; font-size: 12px;">
+                <p class="text-muted " style=" font-family: 'Syne Mono', monospace; font-size: 12px; text-align: center;" >---Esta imagen se usará para validar su rostro a la hora de abrir la puerta---</p>
             </div>
             
           </div>  
@@ -52,7 +52,7 @@
             <input class="center label-text" type="number" id="pin" formControlName="pin" placeholder=" PIN">
             <p  *ngIf="updatePinForm.controls.pin.errors"  style="text-align: center; font-family: 'Syne Mono', monospace; color: #FF8A80; font-size: 10px; padding: 5px;" >Nuevo pin de seguridad(4 digitos)</p>
             <div style="padding-top: 2%;">
-              <p class="text-muted" style=" font-family: 'Syne Mono', monospace; ; text-align: center; font-size: 12px;" >Función solo disponible para rol: MANAGER <br>Se aconseja un número conformado por 4 dígitos. </p>
+              <p class="text-muted" style=" font-family: 'Syne Mono', monospace; ; text-align: center; font-size: 12px;" ><br>El número de estár conformado por 4 dígitos. </p>
             </div>
 
             <br>

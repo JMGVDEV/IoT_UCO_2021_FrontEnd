@@ -2,7 +2,7 @@
     <div *ngIf="permisoVista(profile.role)" >
         
         <h1 style=" color: #80d8ff; font-family: 'Syne Mono', monospace; text-align: center;">
-            Abrir Bóveda Principal</h1>
+            Abrir Caja Fuerte</h1>
         <!-- 
             <h1 style="color: white;"> {{profile.role}}</h1>
         -->
@@ -13,7 +13,7 @@
                     Abrir Puerta
                     
                 </p> 
-                <p style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 15px; "><small>Puede abrir la puerta de la bóveda haciendo uso de sus credenciales.</small></p>
+                <p style="color: #ffffff; font-family: 'Consolas', cursive; font-size: 15px; "><small>Puede abrir la puerta de la caja fuerte haciendo uso de sus credenciales.</small></p>
                 
                 
                 <form  [formGroup]="openDoorForm" (ngSubmit)="nowOpenDoor()" autocomplete="off" action="index.html" method="post" >
@@ -52,12 +52,12 @@
                     
                     <hr>
                 
-                    <p class="text-muted" style=" font-family: 'Syne Mono', monospace; text-align: center; font-size: 12px;" >¿Eres usuario manager? <br>  Verifica tus credencial en la parte superior izquierda, sección profile. <br> Además, recuerda cambiar tu pin por seguridad</p>
-                    <button [disabled]="openDoorForm.invalid || validateFace" type="submit" class="btn btn-success mb-2 margen" style="font-family: 'Consolas', cursive; font-size: 17px; background-color: #00e17b;" autocomplete="off" (click)="openDoor()">Abrir </button>
-                    <button [disabled]="openDoorForm.invalid || validateFace" type="submit" class="btn btn-danger mb-2 margen" style="font-family: 'Consolas', cursive; font-size: 17px; " autocomplete="off" (click)="closeDoor()">Cerrar </button>    
+                    <p class="text-muted" style=" font-family: 'Syne Mono', monospace; text-align: center; font-size: 12px;" >¿Eres un usuario? <br>  Verifica tus credencial en la parte superior izquierda, sección profile. <br> Además, recuerda cambiar tu pin por seguridad</p>
+                    <button [disabled]="openDoorForm.invalid || validateFace" type="submit" class="btn btn-success mb-2 margen" style="font-family: 'Consolas', cursive; font-size: 17px; background-color: #00e17b;" autocomplete="off" (click)="openDoorUser()">Abrir </button>
+                    <button [disabled]="openDoorForm.invalid || validateFace" type="submit" class="btn btn-danger mb-2 margen" style="font-family: 'Consolas', cursive; font-size: 17px; " autocomplete="off" (click)="closeDoorUser()">Cerrar </button>    
                 </form>
             </div>
         </div>
     </div>
-        <div *ngIf="notFount(profile.role)" class="image text-center espaciado-uno"> <img src="../../../assets/img/404.svg" class="rounded" width="200px" ></div>
+    <div *ngIf="notFount(profile.role)" class="image text-center espaciado-uno"> <img src="../../../assets/img/404.svg" class="rounded" width="200px" ></div>
 </div>

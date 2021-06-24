@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { OpenDoorService } from './shared/service/open-door.service';
-import { Profile } from '../../auth/services/profile';
-import { AuthService } from '../../auth/services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { Profile } from 'src/app/auth/services/profile';
 import Swal from 'sweetalert2';
-import { OpenDoorDto } from './shared/model/open-door-manager';
+import { OpenDoorDto } from '../open-door/shared/model/open-door-manager';
+import { OpenDoorUserService } from './shared/service/open-door-user.service';
 
 @Component({
-  selector: 'app-open-door',
-  templateUrl: './open-door.component.html',
-  styleUrls: ['./open-door.component.css']
+  selector: 'app-open-door-user',
+  templateUrl: './open-door-user.component.html',
+  styleUrls: ['./open-door-user.component.css']
 })
-export class OpenDoorComponent implements OnInit {
+export class OpenDoorUserComponent implements OnInit {
 
   public openDoorForm!: FormGroup;
   public profile$!: Observable<Profile>;
@@ -21,7 +21,7 @@ export class OpenDoorComponent implements OnInit {
 
 
   constructor(private FormBuilder: FormBuilder,
-              private doorService: OpenDoorService,
+              private userDoorService: OpenDoorUserService,
               private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -33,13 +33,9 @@ export class OpenDoorComponent implements OnInit {
 
   }
 
-
   public permisoVista(role:any){
-    if (role == 'MANAGER'){
+    if (role == 'USER'){
         return true;
-    }
-    else if (role == 'POWER_USER'){
-      return true;
     }
     else{
       return false;
@@ -47,14 +43,8 @@ export class OpenDoorComponent implements OnInit {
     }
   }
 
-  
-
-
   public notFount(role: any){
-    if(role == 'USER'){
-      return true
-    }
-    else if(role == 'WATCHMAN'){
+    if(role == 'MANAGER'){
       return true
     }
     else{
@@ -63,16 +53,11 @@ export class OpenDoorComponent implements OnInit {
 
   }
 
-
-
   public nowOpenDoor():void {
     if(this.openDoorForm.valid){
       console.log('genial')
     }
   }
-
-
-
 
   public onFileSelected(event: any): void {
     if (event.target.files.length > 0) {
@@ -82,7 +67,7 @@ export class OpenDoorComponent implements OnInit {
       formData.append('photo', file);
       formData.append('pin', this.openDoorForm.get('pin')?.value);
       console.log(formData);
-      this.doorService.validateUser(formData).subscribe(res => {
+      this.userDoorService.validateUser(formData).subscribe(res => {
         Swal.fire({
           title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>Cara reconocida correctamente</small></p>',
           html: '<p class="fuente size-fuente" style="color: #ffffff"><small>Ya tienes acceso a la puerta.</small></p>',
@@ -106,11 +91,11 @@ export class OpenDoorComponent implements OnInit {
     }   
   }
 
-  public closeDoor() {
+  public closeDoorUser() {
     const openDoorDto: OpenDoorDto = {
       pin: this.openDoorForm.get('pin')?.value
     }
-    this.doorService.closeDoor(openDoorDto).subscribe(() => {
+    this.userDoorService.closeBox(openDoorDto).subscribe(() => {
       Swal.fire({
         title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>Puerta cerrada correctamente</small></p>',
         html: '<p class="fuente size-fuente" style="color: #ffffff"><small>Tus pertenencias están a salvo.</small></p>',
@@ -122,11 +107,11 @@ export class OpenDoorComponent implements OnInit {
     });
   }
 
-  public openDoor() {
+  public openDoorUser() {
     const openDoorDto: OpenDoorDto = {
       pin: this.openDoorForm.get('pin')?.value
     }
-    this.doorService.openDoor(openDoorDto).subscribe(() => {
+    this.userDoorService.openBox(openDoorDto).subscribe(() => {
       Swal.fire({
         title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>Puerta abierta correctamente</small></p>',
         html: '<p class="fuente size-fuente" style="color: #ffffff"><small>Ya puedes acceder.</small></p>',
@@ -138,7 +123,7 @@ export class OpenDoorComponent implements OnInit {
     }, err => {
       Swal.fire({
         title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>Hubo un error</small></p>',
-        html: `<p class="fuente size-fuente" style="color: #ffffff"><small>${err.error.message}</small></p>`,
+        html: `<p class="fuente size-fuente" style="color: #ffffff"><small>${err.error.message}.</small></p>`,
         icon: 'error',
         confirmButtonColor: '#00e17b',
         background: '#212121',
@@ -146,4 +131,5 @@ export class OpenDoorComponent implements OnInit {
       });
     });
   }
+
 }

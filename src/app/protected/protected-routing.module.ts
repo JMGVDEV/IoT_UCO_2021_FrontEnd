@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { OpenDoorComponent } from './open-door/open-door.component';
 import { VaultComponent } from './vault/vault.component';
+import { OpenDoorUserComponent } from './open-door-user/open-door-user.component';
 
 const routes: Routes = [
 
@@ -16,6 +17,7 @@ const routes: Routes = [
       {path: 'profile', component: ProfileComponent},
       {path: 'open-door', component: OpenDoorComponent},
       {path: 'myvault', component: VaultComponent},
+      {path: 'open-box', component: OpenDoorUserComponent},
       {path: '**', redirectTo: 'home'}
     ]
   }

@@ -30,7 +30,6 @@ export class GetAppointmentComponent implements OnInit {
 
   public accept(id: String){
     this.idCitaPorFila = id;
-    console.log(this.idCitaPorFila)
     this.appointmentService.acceptAppointment(this.idCitaPorFila).subscribe(resp => {
       Swal.fire({
         title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>¡Genial! Cita aceptada.</small></p>',
@@ -45,9 +44,24 @@ export class GetAppointmentComponent implements OnInit {
     });
   }
 
+  public complete(id: String) {
+    this.idCitaPorFila = id;
+    this.appointmentService.completeAppointment(this.idCitaPorFila).subscribe(resp=>{
+      Swal.fire({
+        title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>Genia! Ha completado la cita.</small></p>',
+        html: '<p class="fuente size-fuente" style="color: #ffffff"><small></small></p>',
+        icon: 'warning',
+        confirmButtonColor: '#00e17b',
+        background: '#212121',
+        confirmButtonText: '<a class="fuente">Ok</a>'
+      });
+      //this.router.navigateByUrl('appointment/get');
+      this.redirectTo('/appointment/get');
+    });
+  }
+
   public reject(id: String){
     this.idCitaPorFila = id;
-    console.log(this.idCitaPorFila)
     this.appointmentService.rejectAppointment(this.idCitaPorFila).subscribe(resp=>{
       Swal.fire({
         title: '<p class="fuente size-fuente" style="color: #80d8ff"><small>Vaya! Cita rechazada.</small></p>',
